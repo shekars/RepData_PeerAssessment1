@@ -71,7 +71,27 @@ legend(x = "topright", c("Mean", "Median"),  col = c( "royalblue", "red"), lwd =
 
 ![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)\
 
-*##What is the average daily activity pattern?*
+the mean value is 
+
+```r
+mean(na.omit(stepsPerDay$total_steps))
+```
+
+```
+## [1] 9354.23
+```
+
+the median value is 
+
+```r
+median(na.omit(stepsPerDay$total_steps))
+```
+
+```
+## [1] 10395
+```
+
+## What is the average daily activity pattern?
 
 Group the data on interval field. 
 
@@ -102,7 +122,17 @@ legend(x = "topright", c("maximum"),  col=c("royalblue"), lwd = c(2) )
 text(0,200,round(max(avgStepsPerInterval$avg_steps)))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)\
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)\
+
+The maximum no. of steps taken is 
+
+```r
+max(avgStepsPerInterval$avg_steps)
+```
+
+```
+## [1] 206.1698
+```
 
 ## Imputing missing values
 
@@ -163,9 +193,29 @@ text(median(na.omit(stepsPerDay$total_steps)),25,round(median(na.omit(stepsPerDa
 legend(x = "topright", c("Mean", "Median"),  col = c( "royalblue", "red"), lwd = c(2, 2))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)\
+![](PA1_template_files/figure-html/unnamed-chunk-13-1.png)\
 
 There is change in the mean and median values. Both mean and median increase after replacing the missing values.
+
+The mean value of the new data set is 
+
+```r
+mean(na.omit(stepsPerDay$total_steps))
+```
+
+```
+## [1] 10766.19
+```
+
+The median value of the new data set is 
+
+```r
+median(na.omit(stepsPerDay$total_steps))
+```
+
+```
+## [1] 10766.19
+```
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
@@ -200,6 +250,6 @@ plot(weekdaySummary$interval, weekdaySummary$avg_steps, type="l", xlab="interval
 plot(weekendSummary$interval, weekendSummary$avg_steps, type="l", xlab="interval", ylab="Steps", main="Weekend")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-12-1.png)\
+![](PA1_template_files/figure-html/unnamed-chunk-17-1.png)\
 
 There is difference in activity patterns between the weekdays and weekends.

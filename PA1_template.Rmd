@@ -50,6 +50,16 @@ text(median(na.omit(stepsPerDay$total_steps)),25,median(na.omit(stepsPerDay$tota
 legend(x = "topright", c("Mean", "Median"),  col = c( "royalblue", "red"), lwd = c(2, 2))
 ```
 
+the mean value is 
+```{r}
+mean(na.omit(stepsPerDay$total_steps))
+```
+
+the median value is 
+```{r}
+median(na.omit(stepsPerDay$total_steps))
+```
+
 ## What is the average daily activity pattern?
 
 Group the data on interval field. 
@@ -76,6 +86,11 @@ abline(h = max(avgStepsPerInterval$avg_steps), col = "royalblue", lwd = 2)
 
 legend(x = "topright", c("maximum"),  col=c("royalblue"), lwd = c(2) )
 text(0,200,round(max(avgStepsPerInterval$avg_steps)))
+```
+
+The maximum no. of steps taken is 
+```{r}
+max(avgStepsPerInterval$avg_steps)
 ```
 
 ## Imputing missing values
@@ -132,6 +147,16 @@ legend(x = "topright", c("Mean", "Median"),  col = c( "royalblue", "red"), lwd =
 ```
 
 There is change in the mean and median values. Both mean and median increase after replacing the missing values.
+
+The mean value of the new data set is 
+```{r}
+mean(na.omit(stepsPerDay$total_steps))
+```
+
+The median value of the new data set is 
+```{r}
+median(na.omit(stepsPerDay$total_steps))
+```
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
